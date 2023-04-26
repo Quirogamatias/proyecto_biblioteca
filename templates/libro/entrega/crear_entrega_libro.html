@@ -1,0 +1,31 @@
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Creacion de entrega del libro </h2>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="form_creacion" action="{% url 'libro:crear_entrega_libro' %}" method="POST">
+            {% csrf_token %}
+            <div class="modal-body">
+                <div id="errores">
+
+                </div>
+                <div class="form-group">
+                    <label for="{{form.id_reserva.name}}">{{form.id_reserva.label}}</label>
+                    {{form.id_reserva}}
+                </div>
+                <div class="form-group">
+                    <label for="{{form.fecha_entrega.name}}">{{form.fecha_entrega.label}}</label>
+                    {{form.fecha_entrega}}
+                </div>                                
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button" onclick="cerrar_modal_creacion();">Cancelar</button>
+                <button id="boton_creacion" class="btn btn-primary" type="button" onclick="registrar();">Confirmar</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

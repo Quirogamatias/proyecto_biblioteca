@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titulo %}
+    Listado de entrega del libro al alumno
+{% endblock titulo %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'assets/css/lib/datatable/dataTables.bootstrap.min.css' %}">
+{% endblock extra_css %}
+
+ {% block body %}     
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-8">
+                    <strong class="card-title">Listado de entrega del libro al alumno</strong>
+                </div>
+                <div class="col-md-4">
+                    <button  type="button" class="btn btn-primary" onclick="abrir_modal_creacion('{% url 'libro:crear_entrega_libro' %}')">Registrar entrega del libro al alumno</button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="table-stats order-table ov-h">        
+        <table id="tabla_entrega" class="table">
+            <thead>
+                <tr>
+                    <th>#</th>                    
+                    <th>reserva</th>
+                    <th>Fecha de entrega del libro al alumno</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>  
+                                        
+            </tbody>
+        </table>
+        </div>
+    </div>   
+ <div class="modal fade" id="creacion" role="dialog">
+
+ </div>
+ <div class="modal fade" id="edicion" role="dialog">
+
+ </div>
+ <div class="modal fade" id="eliminacion" role="dialog"></div>
+{% endblock body %}
+
+ {% block extrajs %}
+ <script src="{% static 'assets/js/lib/data-table/datatables.min.js' %}"></script>
+ <script src="{% static 'assets/js/lib/data-table/datatables.bootstrap.min.js' %}"></script>
+ <script src="{% static 'assets/js/entrega/entrega.js' %}"></script>
+ {% endblock extrajs %}

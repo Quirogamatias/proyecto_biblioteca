@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block titulo %}
+    Listado de devolucion del libro a la biblioteca
+{% endblock titulo %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'assets/css/lib/datatable/dataTables.bootstrap.min.css' %}">
+{% endblock extra_css %}
+
+ {% block body %}     
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-8">
+                    <strong class="card-title">Listado de devolucion del libro a la biblioteca</strong>
+                </div>
+                <div class="col-md-4">
+                    <button  type="button" class="btn btn-primary" onclick="abrir_modal_creacion('{% url 'libro:crear_devolucion_libro' %}')">Registrar devolucion del libro a la biblioteca</button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="table-stats order-table ov-h">        
+        <table id="tabla_devolucion" class="table">
+            <thead>
+                <tr>
+                    <th>#</th>                    
+                    <th>fecha entrega del libro al alumno</th>
+                    <th>Fecha de devolucion del libro a la biblioteca</th>
+                    <th>Estado del libro en la devolucion</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>  
+                                        
+            </tbody>
+        </table>
+        </div>
+    </div>   
+ <div class="modal fade" id="creacion" role="dialog">
+
+ </div>
+ <div class="modal fade" id="edicion" role="dialog">
+
+ </div>
+ <div class="modal fade" id="eliminacion" role="dialog"></div>
+{% endblock body %}
+
+ {% block extrajs %}
+ <script src="{% static 'assets/js/lib/data-table/datatables.min.js' %}"></script>
+ <script src="{% static 'assets/js/lib/data-table/datatables.bootstrap.min.js' %}"></script>
+ <script src="{% static 'assets/js/devolucion/devolucion.js' %}"></script>
+ {% endblock extrajs %}
